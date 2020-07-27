@@ -59,7 +59,7 @@ def viewcart():
 
     if cart==[]:
         print("\nNo items in cart\n")
-        b=input("Press enter to go back to main menu \n")
+        input("Press enter to go back to main menu ")
         return
     
     tableprint(cart)
@@ -103,7 +103,7 @@ def viewcart():
     elif choice==2:
         print("\nPurchase Successful!")
         print("Thanks for shopping at Genius Records Store. We hope to see you again soon!\n")
-        b=input("Press enter to exit ")
+        input("Press enter to exit ")
         global flag
         flag=False
 
