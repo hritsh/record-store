@@ -308,10 +308,8 @@ while flag:
         viewcart()
     
     elif choice==6:
-        print("\nThanks for help !\n")
+        print("\nThanks for visiting !\n")
         break
 
     else:
         print("\nInvalid choice!\n")
-        
-print("Hi")
