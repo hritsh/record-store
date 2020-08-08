@@ -193,6 +193,18 @@ cur.execute("insert into records values('SA302','SKRILLEX AND DIPLO PRESENT JACK
 cur.execute("insert into records values('SA303','RECESS','SKRILLEX','ELECTRONIC','STUDIO ALBUM',900000,2014)")
 cur.execute("insert into records values('SA304','18 MONTHS','CALVIN HARRIS','ELECTRONIC','STUDIO ALBUM',940000,2012)")
 cur.execute("insert into records values('SA305','ADVENTURE','MADEON','ELECTRONIC','STUDIO ALBUM',600000,2015)")
+cur.execute("insert into records values('SL301','SCARED TO BE LONELY','MARTIN GARRIX','ELECTRONIC','SINGLE',800000,2017)")
+cur.execute("insert into records values('SL302','NOW THAT I'VE FOUND YOU','MARTIN GARRIX','ELECTRONIC','SINGLE',100000,2016)")
+cur.execute("insert into records values('SA306','READY FOR THE WEEKEND','CALVIN HARRIS','ELECTRONIC','STUDIO ALBUM',900000,2009)")
+cur.execute("insert into records values('SA307','STORIES','AVICII','ELECTRONIC','STUDIO ALBUM',2300000,2015)")
+cur.execute("insert into records values('EP304','THE DAYS/NIGHTS EP','AVICII','ELECTRONIC','EP',1400000,2014)")
+cur.execute("insert into records values('EP305','THE CITY','MADEON','ELECTRONIC','EP',250000,2012)")
+cur.execute("insert into records values('EP306','GOLD SKIES','MARTIN GARRIX','ELECTRONIC','EP',500000,2014)")
+cur.execute("insert into records values('SL303','IN THE NAME OF LOVE','MARTIN GARRIX','ELECTRONIC','SINGLE',400000,2016)")
+cur.execute("insert into records values('SL304','BUN UP THE DANCE','SKRILLEX','ELECTRONIC','SINGLE',1200000,2015)")
+cur.execute("insert into records values('SA308','FUNK WAV BOUNCES VOL.1','CALVIN HARRIS','ELECTRONIC','STUDIO ALBUM',6700000,2017)")
+cur.execute("insert into records values('SL305','WAKE ME UP','AVICII','ELECTRONIC','SINGLE',1000000,2013)")
+cur.execute("insert into records values('SL306','HEY BROTHER','AVICII','ELECTRONIC','SINGLE',950000,2013)")
 
 conobj.commit()
 
