@@ -108,13 +108,14 @@ def viewcart():
         flag=False
 
 
-
+#importing modules and starting sql connection
 import mysql.connector
 import records
 
 conobj=mysql.connector.connect(host="localhost",user="root",passwd="")
 cur=conobj.cursor()
 
+#creating database and records table if they dont exist
 try:
     cur.execute("create database music")
 except:
@@ -126,11 +127,13 @@ except:
     print()
 cur.execute("create table records(Record_ID varchar(5) primary key, Name varchar(40), Artist varchar(20), Genre varchar(15), Format varchar(20), Units_Sold integer, Year integer)")
 
+#adding records from records.py module
 for record in records.load():
     cur.execute("insert into records values"+str(record))
 
 conobj.commit()
 
+#creating cart table
 try:
     cur.execute("drop table cart")
 except:
@@ -141,8 +144,8 @@ conobj.commit()
 
 cur.execute("use music")
 
+#looping through menu
 flag=True
-
 while flag:
     clearscreen()
     print("-"*50+"\n\t\tGENIUS RECORD STORE\t\t\n"+"-"*50)
@@ -158,6 +161,8 @@ while flag:
     if choice==1:
         clearscreen()
         print("-"*50+"\n\t\tBESTSELLING RECORDS\t\t\n"+"-"*50)
+        
+        #creating rank variable and displaying records with rank
         cur.execute("set @rank:=0")
         cur.execute("select (@rank:=@rank+1) as Rank, Record_ID, Name, Artist, format(Units_Sold,0) as Copies_Sold, Genre, Format, Year from records order by Units_Sold desc limit 25")
         table=cur.fetchall()
