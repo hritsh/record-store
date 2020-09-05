@@ -3,7 +3,7 @@
 
 **MAKE SURE YOU HAVE MYSQL INSTALLED TO RUN THIS CODE**
 <br />
-This is a basic record store interface using python in the front-end and mySQL in the back-end.<br />
+This program simulates a record store interface which uses python in the front-end and MySQL in the back-end.<br />
 Users can browse records through a variety of parameters:<br />
 
   * Bestselling<br />

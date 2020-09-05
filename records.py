@@ -1,3 +1,4 @@
+'''contains all the records and loads them on function call'''
 def load():
     return (('SA001','THE DARK SIDE OF THE MOON','PINK FLOYD','ROCK','STUDIO ALBUM',13000000,1973),
 ('SA002','WISH YOU WERE HERE','PINK FLOYD','ROCK','STUDIO ALBUM',5000000,1975),
