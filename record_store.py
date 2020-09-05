@@ -1,8 +1,10 @@
 def clearscreen():
+    #function that clears all previous output on screen
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def tableprint(lst):
+    #prints table in sql format
     widths = []
     columns = []
     border = '|'
@@ -29,6 +31,7 @@ def tableprint(lst):
     print(separator)
 
 def addtocart():
+    #prompts to add item to cart
     choice=input("\nDo you want to add a record to your cart? (y/n): ")
     if choice=='y':
         n=int(input("\nEnter number of records: "))
@@ -43,6 +46,7 @@ def addtocart():
             cur.execute("insert into cart values('{}','{}','{}','{}',{})".format(id,data[0][0],data[0][1],data[0][2],quan))
             conobj.commit()
             print("\n",quan,"units of",data[0][0],"successfully added to cart !")
+        #another prompt to either continue shopping or checkout
         print("\n1. Continue shopping")
         print("2. View Cart / checkout")
         choice=int(input("\nEnter choice: "))
@@ -51,6 +55,7 @@ def addtocart():
     print()
     
 def viewcart():
+    #shows the cart and prompts for checkout
     clearscreen()
     print("-"*50+"\n\t\t\tCART\n"+"-"*50+"\n")
 
@@ -80,7 +85,6 @@ def viewcart():
     if albums==None:
         albums=0
 
-
     price=albums*1500+eps*1000+singles*500
 
     print("\nPrice per Studio Album : 1500 Rs\t(",albums,"albums in cart )")
@@ -106,7 +110,6 @@ def viewcart():
         input("Press enter to exit ")
         global flag
         flag=False
-
 
 #importing modules and starting sql connection
 import mysql.connector
@@ -171,6 +174,7 @@ while flag:
 
     elif choice==2:
         clearscreen()
+        #displaying select genre submenu
         print("-"*50+"\n\t\tSELECT GENRE\t\t\n"+"-"*50)
         cur.execute("select distinct GENRE from records")
         genres=cur.fetchall()
@@ -190,6 +194,7 @@ while flag:
 
     elif choice==3:
         clearscreen()
+        #displaying select artist submenu
         print("-"*50+"\n\t\tSELECT ARTIST\t\t\n"+"-"*50)
         cur.execute("select distinct ARTIST from records")
         artists=cur.fetchall()
@@ -209,6 +214,7 @@ while flag:
     
     elif choice==4:
         clearscreen()
+        #displaying select era submenu
         print("-"*50+"\n\t\tSELECT ERA\t\t\n"+"-"*50)
         print("\n1. 1960s")
         print("2. 1970s")
@@ -220,22 +226,16 @@ while flag:
         
         if choice==1:
             cur.execute("select * from records where Year between 1960 and 1969 limit 25")
-
         elif choice==2:
             cur.execute("select * from records where Year between 1970 and 1979 limit 25")
-
         elif choice==3:
             cur.execute("select * from records where Year between 1980 and 1989 limit 25")
-        
         elif choice==4:
             cur.execute("select * from records where Year between 1990 and 1999 limit 25")
-        
         elif choice==5:
             cur.execute("select * from records where Year between 2000 and 2009 limit 25")
-
         elif choice==6:
             cur.execute("select * from records where Year between 2010 and 2020 limit 25")
-        
         else:
             print("\nInvalid choice!\n")
             continue
@@ -248,6 +248,7 @@ while flag:
         viewcart()
     
     elif choice==6:
+        #displays exit message and breaks code
         print("\nThanks for visiting !\n")
         break
 
