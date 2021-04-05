@@ -5,30 +5,7 @@ def clearscreen():
 
 def tableprint(lst):
     #prints table in sql format
-    widths = []
-    columns = []
-    border = '|'
-    separator = '+' 
-    length= ['' for i in range(len(lst[0]))]
-    for i in range(len(lst[0])):
-        length[i] = max(list(map(lambda x: len(str(x[i])), lst)))
-    
-    i=0
-    for cd in cur.description:
-        widths.append(max(length[i], len(cd[0])))
-        columns.append(cd[0])
-        i+=1
-
-    for w in widths:
-        border += " %-"+"%ss |" % (w,)
-        separator += '-'*w + '--+'
-
-    print(separator)
-    print(border % tuple(columns))
-    print(separator)
-    for row in lst:
-        print(border % row)
-    print(separator)
+    print(tabulate(lst, headers=[i[0] for i in cur.description], tablefmt='psql'))
 
 def addtocart():
     #prompts to add item to cart
@@ -114,6 +91,7 @@ def viewcart():
 #importing modules and starting sql connection
 import mysql.connector
 import records
+from tabulate import tabulate
 
 conobj=mysql.connector.connect(host="localhost",user="root",passwd="")
 cur=conobj.cursor()
